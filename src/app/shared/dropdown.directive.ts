@@ -18,6 +18,7 @@ export class DropdownDirective {
 
   //* Così si chiude se clicchiamo da qualsiasi altra parte nella pagina
   @HostListener("document:click", ["$event"]) toggleOpen(event: Event) {
+    /* console.log(event); */
     this.isOpen = this.elRef.nativeElement.contains(event.target)
       ? !this.isOpen
       : false;

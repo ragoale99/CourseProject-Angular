@@ -1,8 +1,15 @@
+<!-- header component -->
+<!-- dall'header si è fatto l'event binding con featureSelected che trasporta i dati (in questo caso di tipo stringa - 'recipe' o 'shopping-list') -->
+<!-- tali dati sono passaati al metodo onNavigate nell' $event -->
 <app-header (featureSelected)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <!-- componente per tutto ciò che riguarda le ricette -->
+      <!-- se loadedFeature === 'recipe' => mostro a video il componente delle ricette-->
       <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+      <!-- componente per tutto ciò che riguarda la lista della spesa -->
+      <!-- se loadedFeature !== 'recipe' => mostro a video il componente della lista della spesa -->
       <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
     </div>
   </div>

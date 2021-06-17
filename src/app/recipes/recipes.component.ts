@@ -13,4 +13,9 @@ export class RecipesComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  // setta selectedRecipe con la ricetta che gli arriva dall'evento recipeWasSelected
+  onShowRecipe(recipe: Recipe) {
+    this.selectedRecipe = recipe;
+  }
 }

@@ -6,12 +6,17 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <!-- se si clicca sul link: Recipes => metodo onSelect('recipe') -->
         <li><a href="#" (click)="onSelect('recipe')">Recipes</a></li>
+        <!-- se si clicca sul link: Shopping List => metodo onSelect('shopping-list') -->
         <li>
           <a href="#" (click)="onSelect('shopping-list')">Shopping List</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <!-- appDropdown è la direttiva custom che agisce sulla classe "open" del dropdown -->
+        <!-- ogni volta che il bottone del menu dropdown è cliccato => attraverso un HostListener viene invocato un metodo -->
+        <!-- tale metodo apre il dropdown e lo chiude al click successivo, ovunque venga eseguito sulla pagina -->
         <li class="dropdown" appDropdown>
           <a href="#" class="dropdown-toggle" role="button"
             >Manage <span class="caret"></span

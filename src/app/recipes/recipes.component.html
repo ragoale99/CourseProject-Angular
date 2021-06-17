@@ -1,12 +1,22 @@
 <div class="row">
   <div class="col-md-5">
+    <!-- componente per la lista di ricette  -->
+    <!-- recipeWasSelected porta con se la ricetta da mostrare a video (quella cliccata) -->
+    <!-- viene quindi passata al metodo onShowRecipe all'interno di $event -->
     <app-recipe-list
-      (recipeWasSelected)="selectedRecipe = $event"></app-recipe-list>
+      (recipeWasSelected)="onShowRecipe($event)"
+    ></app-recipe-list>
   </div>
   <div class="col-md-7">
+    <!-- componente per le info di dettaglio sulla ricetta selezionata -->
+    <!-- i dettagli sono mostarti a video solo se selectedRecipe ha un valore => è stata cliccata una ricetta dalla lista di ricette -->
+    <!-- le info della ricetta sono "mandate giù" a recipe-detail con la custom property [recipe] -->
     <app-recipe-detail
       *ngIf="selectedRecipe; else infoText"
-      [recipe]="selectedRecipe"></app-recipe-detail>
+      [recipe]="selectedRecipe"
+    ></app-recipe-detail>
+    <!-- se la condizione dell'ngIf sopra è falsa, allora mostra il contenuto del seguente <ng-template> -->
+    <!-- il collegamento come si può notare avviene attraverso la locar reference "infoText" -->
     <ng-template #infoText>
       <p>Please select a Recipe!</p>
     </ng-template>
