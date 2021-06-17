@@ -10,11 +10,9 @@
     <!-- con ngFor si itera sulle varie ricette contenute nell'array 'recipes' -->
     <!-- ogni ricetta, attravero la custom property [recipe], viene passata ai vari componenti figli recipe-item -->
     <!-- recipeSelected è l'evento emesso dal recipe-item una volta che viene cliccata una ricetta -->
-    <!-- è quindi passato recipeEl (he rappresenta proprio la ricetta cliccata) al metodo onRecipeSelected -->
     <app-recipe-item
       *ngFor="let recipeEl of recipes"
       [recipe]="recipeEl"
-      (recipeSelected)="onRecipeSelected(recipeEl)"
     ></app-recipe-item>
   </div>
 </div>

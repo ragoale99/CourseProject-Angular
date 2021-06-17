@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
-
+import { Component, OnInit, Input } from "@angular/core";
+import { RecipeService } from "../../recipe.service";
 import { Recipe } from "../../recipe.model";
 
 @Component({
@@ -15,15 +15,11 @@ export class RecipeItemComponent implements OnInit {
 	*/
   @Input() recipe: Recipe;
 
-  // l'evento non deve portare con se informazioni quindi è di tipo <void>
-  @Output() recipeSelected = new EventEmitter<void>();
-
-  constructor() {}
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit() {}
 
-  // onSelected si occupa solo di emettere l'evento recipeSelected (quando una ricetta è cliccata)
   onSelected() {
-    this.recipeSelected.emit();
+    this.recipeService.recipeSelected.emit(this.recipe);
   }
 }

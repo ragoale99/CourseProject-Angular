@@ -1,6 +1,9 @@
+import { EventEmitter } from "@angular/core";
 import { Recipe } from "./recipe.model";
 
 export class RecipeService {
+  recipeSelected = new EventEmitter<Recipe>();
+
   // array di ricette su cui si itera per mostrare a video tutte le ricette
   private recipes: Recipe[] = [
     new Recipe(
@@ -16,9 +19,9 @@ export class RecipeService {
   ];
 
   getRecipes() {
+    return this.recipes.slice();
     // invocando slice() senza parametri sto ritornando una copia dell'array recipes
     // non voglio infatti dare direttamente l'array ai vari componenti
     // const copy: Recipe[] = ...this.recipes; non posso fare sta cosa a causa di "this"
-    return this.recipes.slice();
   }
 }
